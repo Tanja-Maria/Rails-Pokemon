@@ -17,8 +17,6 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.active_storage.service = :cloudinary
-
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?
@@ -63,6 +61,8 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  config.active_storage.service = :cloudinary
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
