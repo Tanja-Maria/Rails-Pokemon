@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
   root to: "pokemons#index"
-  resources :trainers
-  resources :pokemons
+  resources :trainers, only: [:index, :new, :show, :create]
+  # resources :trainers
+
+  resources :pokemons, only: [:show, :index] do
+    resources :pokeballs, only: [:create]
+      collection do
+        get :random
+      end
+  end
+
+  resources :pokeballs, only: [:destroy]
+
+  # resources :pokemons do
+  #   resources :pokeballs
+  # end
+
   # get "pokemons", to: "pokemons#index"
   # resources :pokemons, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
