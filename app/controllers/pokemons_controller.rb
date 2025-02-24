@@ -12,5 +12,6 @@ class PokemonsController < ApplicationController
     @pokemon = Pokemon.order("RANDOM()").first
     @pokeball = Pokeball.new(pokemon: @pokemon, caught_on: Date.today)
     render :show
+    # This is just a comment to push
   end
 end
